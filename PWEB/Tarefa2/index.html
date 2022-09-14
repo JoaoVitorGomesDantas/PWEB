@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefa 2 Programação Web</title>
+    <style>
+        #texto {
+            opacity: 0.0;
+            transition: 0.5s;
+        }
+        #botaoCarregar {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Utilize o botão para mostrar a tabela de cervejas!</h1>
+    <button id = "botaoCarregar"> Click </button>
+    <div id="texto">
+        <table border="2" align="center">
+        <tr>
+            <th align="center" height="50" width="50%" style="background-color: rgb(100, 100, 100);">Bebidas</th>
+        </tr>
+        <tr>
+            <td align="center" <p><a target="blank" href="https://www.skol.com.br/" >Skol</a></p></td>
+        </tr>
+        <tr>
+            <td align="center" <p><a target="blank" href="https://www.brahma.com.br/" >Brahma</a></p></td>
+        </tr>
+        <tr>
+            <td align="center" <p><a target="blank" href="https://www.heinekenbrasil.com.br/" >Heineken</a></p></td>
+        </tr>
+        <tr>
+            <td align="center" <p><a target="blank" href="https://www.budweiser.com/pt-br/" >Budweiser</a></p></td>
+        </tr>
+        <tr>
+            <td align="center" <p><a target="blank" href="https://www.coronastore.com.br/" >Corona</a></p></td>
+        </tr>
+        </table>
+    </div>
+</body>
+
+<script>
+    let textoTela = true;
+    function carregarDiv(){
+        textoTela = !textoTela
+        if (textoTela == true) {
+            texto.style.opacity = 0.0;
+        } else {
+            texto.style.opacity = 1.0;
+        }
+    }
+
+    const texto = document.getElementById("texto")
+    const botao = document.getElementById("botaoCarregar")
+
+    botao.addEventListener("click", carregarDiv)
+</script>
+</html>
