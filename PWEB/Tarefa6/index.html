@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>   
+   <head>
+      <meta charset="UTF-8">     
+      <style type="text/css">
+         #cervejas {
+            display: none;
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+         }
+
+         #cervejas td, #cervejas th {
+            border: 1.5px solid #ddd;
+            padding: 10px;
+         }
+
+         #cervejas tr:nth-child(even){background-color: #f2f2f2;}
+
+         #cervejas th {
+            padding-top: 10px;
+            padding-bottom: 15px;
+            text-align: center;
+            background-color: #5b918e;
+            color: white;
+         }
+      
+      </style> 
+   </head>
+   <body>
+      <div id="cervejasDiv">
+         <table id="cervejas">
+            <thead>
+              <tr>
+                <th>NOME</th>
+                <th>ESTILO</th>
+                <th>IBU</th>
+                <th>ÁLCOOL</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+         </table>
+      </div>
+      <button id="botaoCarregar">Carregando cervejas...</button>
+     
+   </body>   
+   <script type="text/javascript">
+      //cs é um array de cervejas
+      const carregarDiv = cs => {
+         document.getElementById('cervejas').style.display = 'block';
+         let tbody = document.querySelector("#cervejas tbody");
+         const itensHtml = cs.map( item => 
+         `<tr>
+            <td>${item.name}</td>
+            <td>${item.style}</td>
+            <td>${item.ibu}</td>
+            <td>${item.alcohol}</td>
+         </tr>` ); 
+         tbody.innerHTML = `${itensHtml.join("\n")}`;
+      }
+
+      const carregarCervejas = () => {
+         fetch("https://random-data-api.com/api/v2/beers?size=3").then(
+            res => res.json()
+         ).then(carregarDiv)
+         .catch(() => {
+            document.getElementById('cervejas').style.display = 'block';
+            let tbody = document.querySelector("#cervejas tbody");
+            tbody.innerHTML = 
+            `<tr>
+               <td colspan="6" align="center">Falha na requisição</td>
+            </tr>`; 
+         });
+      }
+
+      let botao = document.getElementById("botaoCarregar");
+      botao.addEventListener("click", () => carregarCervejas());    
+   </script>
+
+</html>
