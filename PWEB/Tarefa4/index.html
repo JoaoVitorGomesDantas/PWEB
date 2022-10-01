@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tarefa 4 Programação Web</title>
+    </head>
+
+    <body>
+        <div><button id="botaoCarregar">Carregando cervejas...</button></div>
+        <div id="text"></div>
+    </body>   
+    <script>
+        let cervejas = ["Guiness", "Desperados", "Becks"]
+  
+        //function carregarDiv(){
+        const carregarDiv = () => {
+           const div = document.getElementById("text")
+           const cervejasHtml = cervejas.map(item => `<h1>${item}</h1>`)
+           div.innerHTML = `${cervejasHtml.join("\n")}`
+        }
+  
+        let botao = document.getElementById("botaoCarregar")
+        botao.addEventListener("click", carregarDiv)                 
+    </script>
+</html>
