@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+
+   <head>
+      <title>ReactZero</title>
+   </head>
+
+   <body>
+      <div id="app">
+
+      </div>
+
+      <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+      <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+      <script src="https://unpkg.com/babel-standalone/babel.min.js" crossorigin></script>
+      
+      <script type="text/babel">
+        const TabelaBebidas = () => {
+            return <div id="app">
+                <table id="tabela" border="1">
+                    <thead>
+                        <tr><th>Nome</th><th>Marca</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Skol Pilsen</td><td>Skol</td></tr>
+                        <tr><td>Bramah Puro Malte</td><td>Bramah</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        }
+
+        ReactDOM.render(
+            <TabelaBebidas/>,
+            document.getElementById("app"))
+      </script>
+   </body>
+
+</html>
